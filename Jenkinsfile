@@ -1,6 +1,6 @@
 pipeline {
     agent any
-	// Comentario
+
 	tools {
 		maven 'Maven'
 	}
@@ -10,6 +10,11 @@ pipeline {
             steps {
                 // Clona el repositorio
                 git branch: 'main', url: 'https://github.com/DiegoAM7/devops-modulo4-actividad2'
+            }
+        }
+        stage ('SoapUI test') {
+            steps {
+                sh '/opt/SoapUI-5.4.0/bin/testrunner.sh -r test-soapui-project.xml'
             }
         }
         stage ('Test') {
