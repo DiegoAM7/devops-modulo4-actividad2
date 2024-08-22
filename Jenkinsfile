@@ -12,11 +12,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/DiegoAM7/devops-modulo4-actividad2'
             }
         }
-        stage ('Prueba de Polling') {
-            steps {
-                sh 'Prueba de auto polling'
-            }
-        }
         stage ('Test') {
             steps {
                 sh 'mvn test'
