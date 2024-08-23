@@ -17,6 +17,11 @@ pipeline {
                 sh '/opt/SoapUI-5.7.2/bin/testrunner.sh -r test-soapui-project.xml'
             }
         }
+    	stage ('JMeter') {
+	    	steps {
+				sh '/opt/apache-jmeter-5.6.3/bin/jmeter -n -t Test-Plan.jmx -l Results.jtl'
+			}
+		}
         stage ('Test') {
             steps {
                 sh 'mvn test'
