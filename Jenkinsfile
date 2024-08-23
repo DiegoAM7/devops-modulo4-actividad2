@@ -12,7 +12,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			slackSend "Build Started"
+			slackSend color: "good", message: "Message from Jenkins Pipeline"
 		}
 	}
         stage('Checkout') {
