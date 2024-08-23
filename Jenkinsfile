@@ -6,6 +6,11 @@ pipeline {
 	}
 
     stages {
+	stage ('Mensaje Inicial Slack') {
+		steps {
+			sh 'slackSend color: "good", message: "Iniciando build de modulo4-actividad2"'
+		}
+	}
         stage('Checkout') {
             steps {
                 // Clona el repositorio
