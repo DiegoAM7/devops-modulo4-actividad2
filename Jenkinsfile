@@ -14,7 +14,7 @@ pipeline {
         }
         stage ('SoapUI test') {
             steps {
-                sh '/opt/SoapUI-5.4.0/bin/testrunner.sh -r test-soapui-project.xml'
+                sh '/opt/SoapUI-5.7.2/bin/testrunner.sh -r test-soapui-project.xml'
             }
         }
         stage ('Test') {
