@@ -8,7 +8,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			ssssslackSend color: "good", message: "Inicio de Build"
+			slackSend color: "good", message: "Inicio de Build"
 		}
 	}
         stage('Checkout') {
