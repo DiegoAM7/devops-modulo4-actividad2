@@ -8,7 +8,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			sh 'slackSend color: "good", message: "Iniciando build de modulo4-actividad2"'
+			sh 'slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"'
 		}
 	}
         stage('Checkout') {
