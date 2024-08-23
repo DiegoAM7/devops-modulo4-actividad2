@@ -1,10 +1,6 @@
 pipeline {
     	agent any
 
-	environment  {
-		SLACK_TOKEN = credentials('Slack')
-	}
-
 	tools {
 		maven 'Maven'
 	}
@@ -12,7 +8,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			slackSend color: "good", message: "Message from Jenkins Pipeline"
+			ssssslackSend color: "good", message: "Inicio de Build"
 		}
 	}
         stage('Checkout') {
@@ -49,4 +45,13 @@ pipeline {
             }
         }
     }
+
+	post {
+		success {
+			slackSend color: "good", message: "Finalización de Build"
+		}
+		failure {
+			slackSend color: "danger", message: "Error en el Build"
+		}
+	}
 }
