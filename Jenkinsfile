@@ -12,7 +12,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			slackSend token: $SLACK_TOKEN channel: "#bootcamp-pipeline" message: "Build Started"
+			slackSend "Build Started"
 		}
 	}
         stage('Checkout') {
