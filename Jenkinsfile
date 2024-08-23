@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    	agent any
+
+	enviroment {
+		SLACK_TOKEN = credentials('Slack')
+	}
 
 	tools {
 		maven 'Maven'
@@ -8,7 +12,7 @@ pipeline {
     stages {
 	stage ('Mensaje Inicial Slack') {
 		steps {
-			sh 'slackSend "Build Started"'
+			sh 'slackSend token: $SLACK_TOKEN channel: "#bootcamp-pipeline" message: "Build Started"'
 		}
 	}
         stage('Checkout') {
